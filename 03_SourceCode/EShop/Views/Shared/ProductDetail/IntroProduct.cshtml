@@ -1,0 +1,103 @@
+﻿<div id="fb-root"></div>
+<script>
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.8";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+<ol class="breadcrumb" style="margin-top:10px; margin-left:-30px;background-color:white;">
+    <li class="breadcrumb-item"><a href="#">Trang Chủ</a></li>
+    <li class="breadcrumb-item "><a href="#">Bé Ăn</a></li>
+    <li class="breadcrumb-item "><a href="#">Sữa Bột Các Loại</a></li>
+    <li class="breadcrumb-item active">Sữa 26</li>
+</ol>
+<div class="row" style="margin-bottom:20px; border-bottom:1px solid #ccc; padding-bottom:50px">
+    <div class="col-5 col-m-12">
+        <ul id="thumbnail-slide">
+            <li>
+                <img class="etalage_thumb_image" src="~/images/pic1.jpg" />
+                <img class="etalage_source_image" src="~/images/pic1.jpg" />
+            </li>
+            <li>
+                <img class="etalage_thumb_image" src="~/images/pic2.jpg" />
+                <img class="etalage_source_image" src="~/images/pic2.jpg" />
+            </li>
+            <li>
+                <img class="etalage_thumb_image" src="~/images/pic3.jpg" />
+                <img class="etalage_source_image" src="~/images/pic3.jpg" />
+            </li>
+            <li>
+                <img class="etalage_thumb_image" src="~/images/pic4.jpg" />
+                <img class="etalage_source_image" src="~/images/pic4.jpg" />
+            </li>
+            <li>
+                <img class="etalage_thumb_image" src="~/images/pic5.jpg" />
+                <img class="etalage_source_image" src="~/images/pic5.jpg" />
+            </li>
+        </ul>
+    </div>
+    <div class="col-7 col-m-12">
+
+        <h5 style="color:black;font-size:30px;font-weight:lighter;padding-bottom:10px;border-bottom:1px solid #ccc;font-family:'Times New Roman', Times, serif">
+                SỮA WYETH S-26 PROMISE GOLD SỐ 4 900G (TRÊN 3 TUỔI)</h5>
+        <span id="rateYo"></span> 
+        <div class="rate-product">
+            <h5 style="float:left">Mã Sản Phẩm : 113977 </h5>
+            
+            <div class="fb-like" style="float:right;margin-top:10px" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-share="true"></div>
+        </div>
+        <div class="row" style="border-bottom:1px solid #ccc">
+            <div class="col-5 col-m-4">
+                <ul style="margin-left:-10px;margin-top:10px">
+                    <li style="color:#ccc">Cung cấp các dưỡng chất cho bé</li>
+                    <li style="color:#ccc">Hỗ trợ phát triển thể chất và trí não</li>
+                    <li style="color:#ccc">Nhập khẩu từ Singapore</li>
+                </ul>
+            </div>
+            <div class="col-3 col-m-3">
+                <h5><b>Thương Hiệu:</b><a href="#" style="color:black">Wyeth</a></h5>
+            </div>
+        </div>
+
+
+        <h5 style="color:red; font-size:30px">320.000đ <span style="color:#808080;font-size:25px;text-decoration:line-through">360.000đ</span></h5>
+    
+        <button type="submit" class="buy-now"> Mua Ngay</button>
+        <button type="submit" class="add-cart-button">Thêm Vào Giỏ Hàng</button>
+    
+    </div>
+</div>
+
+<script>
+    jQuery(document).ready(function($){
+        $('#thumbnail-slide').etalage({
+            thumb_image_width: 350,
+            thumb_image_height: 350,
+            source_image_width: 900,
+            source_image_height: 900,
+            zoom_area_width: 700,
+            zoom_area_height:700,
+            zoom_area_distance: 5,
+            small_thumbs: 5,
+            smallthumb_inactive_opacity: 0.3,
+            smallthumbs_position: 'left',
+            show_icon: false,
+            autoplay: false,
+            keyboard: false,
+            zoom_easing: false
+        });
+    });
+    $(function () {
+
+        $("#rateYo").rateYo({
+            rating: 3.6
+        });
+
+    });
+
+</script>

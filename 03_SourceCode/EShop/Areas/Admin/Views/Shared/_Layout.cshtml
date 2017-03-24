@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    @RenderPage("~/Areas/Admin/Views/Shared/Meta.cshtml")
+</head>
+<body>
+    <div class="wthree_agile_admin_info">
+        @RenderPage("~/Areas/Admin/Views/Shared/Header.cshtml")
+        <div class="clearfix"></div>
+        <div class="inner_content">
+            @RenderBody()
+       </div>
+    </div>
+    @RenderPage("~/Areas/Admin/Views/Shared/Footer.cshtml")
+    
+    
+    
+    <!-- js -->
+    <script src="~/Content/admin/js/jquery-2.1.4.min.js"></script>
+    <script src="~/Content/admin/js/modernizr.custom.js"></script>
+    <script src="~/Content/admin/js/classie.js"></script>
+    <script src="~/Content/admin/js/gnmenu.js"></script>
+    <script src="../Content/admin/js/jquery-2.1.4.min.js"></script>
+    <!-- /amcharts -->
+    <script src="../Content/admin/js/amcharts.js"></script>
+    <script src="../Content/admin/js/serial.js"></script>
+ 
+    <script src="../Content/admin/js/light.js"></script>
+    <!-- Chart code -->
+   
+    <script src="~/Content/admin/js/classie.js"></script>
+
+    <script src="~/Content/admin/js/gnmenu.js"></script>
+    <script>
+			new gnMenu( document.getElementById( 'gn-menu' ) );
+    </script>
+    
+    <script src="~/Content/admin/js/jquery.nicescroll.js"></script>
+    <script src="~/Content/admin/js/scripts.js"></script>
+    <script src="~/Content/admin/js/jquery.nicescroll.js"></script>
+    <script src="~/Content/admin/js/scripts.js"></script>
+    <script src="~/Content/admin/ckeditor/ckeditor.js"></script>
+    <script type="text/javascript" src="~/Content/admin/js/bootstrap-3.1.1.min.js"></script>
+</body>
+</html>

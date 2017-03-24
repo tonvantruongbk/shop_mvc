@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-2 col-m-12">
+            <div class="menu-title">
+                <i class="fa fa-bars" aria-hidden="true"></i>
+                <span>Danh Mục</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="body-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-2 col-m-12">
+                @RenderPage("~/Views/Shared/HomePartials/Navigate.cshtml")
+            </div>
+            <div class="col-10 com-m-12">
+                @RenderPage("~/Views/Shared/HomePartials/SlideShow.cshtml")
+            </div>
+        </div>
+        @RenderPage("~/Views/Shared/HomePartials/Register.cshtml")
+        @RenderPage("~/Views/Shared/HomePartials/Content.cshtml")
+    </div>
+</div>

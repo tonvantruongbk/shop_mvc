@@ -1,0 +1,116 @@
+﻿
+@{
+    ViewBag.Title = "Album";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="inner_content_w3_agile_info two_in">
+    <h2 class="w3_inner_tittle">Quản lý danh mục</h2>
+
+    <div class="agile-grids">
+        <!-- validation -->
+        <div class="grids">
+
+            <div class="forms-grids">
+                <div class="w3agile-validation">
+                    <div class="agile-validation agile_info_shadow">
+                        <div class="my-div">
+                            <form method="post" action="#" class="valida" autocomplete="off" novalidate="novalidate">
+
+                                @*<div class="input-info">
+                                        <h3 class="w3_inner_tittle two">Input Texts:</h3>
+                                    </div>*@
+
+                                <div class="row">
+
+                                    <div class="col-xs-12 col-sm-6">
+                                        <label>Tên album</label>
+                                        <div class="form-group">
+                                            <input class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xs-12 col-sm-6">
+                                        <label>Mô tả</label>
+                                        <div class="form-group">
+                                            @*<input type="image" src="images/btn_submit.jpeg" alt="SUBMIT" name="" />*@
+                                            <input class="form-control">
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <hr>
+
+                                <p>
+                                    <input type="submit" name="sub-1" value="Lưu lại" class="btn btn-primary">
+                                    <input type="reset" name="res-1" id="res-1" value="Làm mới" class="btn btn-danger">
+                                </p>
+                                <hr />
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-12">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                Danh sách album
+                                            </div>
+                                            <!-- /.panel-heading -->
+                                            <div class="panel-body">
+                                                <div class="table-responsive">
+                                                    <table class="table table-striped table-bordered table-hover">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Mã</th>
+                                                                <th>Tên album</th>
+                                                                <th>Mô tả</th>
+                                                                <th>Ngày tạo</th>
+                                                                <th>Người tạo</th>
+                                                                <th></th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>1</td>
+                                                                <td>Mark</td>
+                                                                <td>Otto</td>
+                                                                <td>mdo</td>
+                                                                <td></td>
+                                                                <td></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>2</td>
+                                                                <td>Jacob</td>
+                                                                <td>Thornton</td>
+                                                                <td>fat</td>
+                                                                <td></td>
+                                                                <td></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>3</td>
+                                                                <td>Larry</td>
+                                                                <td>the Bird</td>
+                                                                <td>twitter</td>
+                                                                <td></td>
+                                                                <td></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <!-- /.table-responsive -->
+                                            </div>
+                                            <!-- /.panel-body -->
+                                        </div>
+                                        <!-- /.panel -->
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+        <!-- //validation -->
+    </div>
+    <!-- //inner_content_w3_agile_info-->
+</div>
+

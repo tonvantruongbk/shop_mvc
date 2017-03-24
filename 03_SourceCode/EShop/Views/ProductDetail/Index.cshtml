@@ -1,0 +1,26 @@
+﻿@{
+    Layout = "~/Views/Shared/BasePartials/_Layout.cshtml";
+}
+    <div class="body-content" style="border-top:1px solid #ccc; margin-top:10px; background-color:white!important ">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-12 col-m-12">
+                    @RenderPage("~/Views/Shared/ProductDetail/IntroProduct.cshtml")
+                </div>
+                <div class="col-12 com-m-12">
+                    @RenderPage("~/Views/Shared/ProductDetail/SlideImage.cshtml")
+                </div>
+                <div class="col-12 com-m-12">
+                    <div class="row">
+                        <div class="col-8 col-m-12">
+                            @RenderPage("~/Views/Shared/ProductDetail/Detail.cshtml")
+                        </div>
+                        <div class="col-4 col-m-12">
+                            @RenderPage("~/Views/Shared/ProductDetail/RelativeProduct.cshtml")
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

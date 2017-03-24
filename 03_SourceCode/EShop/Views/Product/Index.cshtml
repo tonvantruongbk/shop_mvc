@@ -1,0 +1,19 @@
+﻿@{
+    Layout = "~/Views/Shared/BasePartials/_Layout.cshtml";
+}
+<div class="body-content" style="border-top:1px solid #ccc; margin-top:10px; ">
+    <div class="container">
+        <ol class="breadcrumb" style="margin-top:10px; border-bottom:4px solid red; width:200px; margin-left:-30px">
+            <li class="breadcrumb-item"><a href="#">Trang Chủ</a></li>
+            <li class="breadcrumb-item active">Bé Ăn</li>
+        </ol>
+        <div class="row">
+            <div class="col-2 col-m-12">
+                @RenderPage("~/Views/Shared/Product/Menu.cshtml")
+            </div>
+            <div class="col-10 com-m-12">
+                @RenderPage("~/Views/Shared/Product/ListProduct.cshtml")
+            </div>
+        </div>
+    </div>
+</div>

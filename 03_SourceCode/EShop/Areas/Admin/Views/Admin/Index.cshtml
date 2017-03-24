@@ -1,0 +1,205 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<div class="inner_content_w3_agile_info">
+    <!-- /agile_top_w3_grids-->
+    <div class="agile_top_w3_grids">
+        <ul class="ca-menu">
+            <li>
+                <a href="#">
+
+                    <i class="fa fa-eye" aria-hidden="true"></i>
+                    <div class="ca-content">
+                        <h4 class="ca-main">160,808</h4>
+                        <h3 class="ca-sub">Lượt truy cập</h3>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                    <div class="ca-content">
+                        <h4 class="ca-main one">26,808</h4>
+                        <h3 class="ca-sub one">Thành viên</h3>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-building-o" aria-hidden="true"></i>
+                    <div class="ca-content">
+                        <h4 class="ca-main two">298</h4>
+                        <h3 class="ca-sub two">Nhà cung cấp</h3>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-product-hunt" aria-hidden="true"></i>
+                    <div class="ca-content">
+                        <h4 class="ca-main three">49,436</h4>
+                        <h3 class="ca-sub three">Sản phẩm</h3>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-clone" aria-hidden="true"></i>
+                    <div class="ca-content">
+                        <h4 class="ca-main four">30,808</h4>
+                        <h3 class="ca-sub four">Đơn hàng</h3>
+                    </div>
+                </a>
+            </li>
+            <div class="clearfix"></div>
+        </ul>
+    </div>
+    <!-- //agile_top_w3_grids-->
+    <!-- /agile_top_w3_post_sections-->
+    <div class="agile_top_w3_post_sections">
+        <div class="col-md-12 agile_top_w3_post agile_info_shadow">
+            <div class="img_wthee_post">
+                <h3 class="w3_inner_tittle">Báo cáo doanh số</h3>
+                <div class="stats-wrap">
+                    <div class="count_info"><h4 class="count">65,800,587 </h4><span class="year">Sản phẩm</span></div>
+                    <div class="year-info"><p class="text-no">2017 </p><span class="year">Năm</span></div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="stats-wrap">
+                    <div class="count_info"><h4 class="count">2,690 </h4><span class="year">Sản phẩm</span></div>
+                    <div class="year-info"><p class="text-no">03 </p><span class="year">Tháng</span></div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="stats-wrap">
+                    <div class="count_info"><h4 class="count">24,660 </h4><span class="year">Sản phẩm</span></div>
+                    <div class="year-info"><p class="text-no">03 </p><span class="year">Tuần</span></div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="stats-wrap">
+                    <div class="count_info"><h4 class="count">1,204</h4><span class="year">Sản phẩm</span></div>
+                    <div class="year-info"><p class="text-no">21 </p><span class="year">Ngày</span></div>
+                    <div class="clearfix"></div>
+                </div>
+
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+    <!-- //agile_top_w3_post_sections-->
+    <!-- /w3ls_agile_circle_progress-->
+    <div class="w3ls_agile_cylinder chart agile_info_shadow">
+        <h3 class="w3_inner_tittle two"> Doanh số</h3>
+
+        <div id="chartdiv"></div>
+    </div>
+
+    <!--//prograc-blocks_agileits-->
+    <!-- //inner_content_w3_agile_info-->
+</div>
+
+
+@*<script>
+var chart = AmCharts.makeChart("chartdiv", {
+    "theme": "light",
+    "type": "serial",
+    "startDuration": 2,
+    "dataProvider": [{
+        "country": "Hà Nội",
+        "visits": 4025,
+        "color": "#FF0F00"
+    }, {
+        "country": "Hồ Chí Minh",
+        "visits": 1882,
+        "color": "#FF6600"
+    }, {
+        "country": "Đà Nẵng",
+        "visits": 1809,
+        "color": "#FF9E01"
+    }, {
+        "country": "Hải Phòng",
+        "visits": 1322,
+        "color": "#FCD202"
+    }, {
+        "country": "Cần Thơ",
+        "visits": 1122,
+        "color": "#F8FF01"
+    }, {
+        "country": "Huế",
+        "visits": 1114,
+        "color": "#B0DE09"
+    }, {
+        "country": "Thanh Hóa",
+        "visits": 984,
+        "color": "#04D215"
+    }, {
+        "country": "Nghệ An",
+        "visits": 711,
+        "color": "#0D8ECF"
+    }, {
+        "country": "Vũng Tàu",
+        "visits": 665,
+        "color": "#0D52D1"
+    }, {
+        "country": "Bình Dương",
+        "visits": 580,
+        "color": "#2A0CD0"
+    }, {
+        "country": "Lâm Đồng",
+        "visits": 443,
+        "color": "#8A0CCF"
+    }, {
+        "country": "Lạng Sơn",
+        "visits": 441,
+        "color": "#CD0D74"
+    }, {
+        "country": "Tuyên Quang",
+        "visits": 395,
+        "color": "#754DEB"
+    }, {
+        "country": "Đồng Nai",
+        "visits": 386,
+        "color": "#DDDDDD"
+    }, {
+        "country": "Quảng Ninh",
+        "visits": 338,
+        "color": "#333333"
+    }],
+    "valueAxes": [{
+        "position": "left",
+        "axisAlpha":0,
+        "gridAlpha":0
+    }],
+    "graphs": [{
+        "balloonText": "[[category]]: <b>[[value]]</b>",
+        "colorField": "color",
+        "fillAlphas": 0.85,
+        "lineAlpha": 0.1,
+        "type": "column",
+        "topRadius":1,
+        "valueField": "visits"
+    }],
+    "depth3D": 40,
+	"angle": 30,
+    "chartCursor": {
+        "categoryBalloonEnabled": false,
+        "cursorAlpha": 0,
+        "zoomable": false
+    },
+    "categoryField": "country",
+    "categoryAxis": {
+        "gridPosition": "start",
+        "axisAlpha":0,
+        "gridAlpha":0
+
+    },
+    "export": {
+    	"enabled": true
+     }
+
+}, 0);
+</script>*@
+
+
