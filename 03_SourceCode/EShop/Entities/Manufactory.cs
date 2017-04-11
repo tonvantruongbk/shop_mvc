@@ -8,15 +8,22 @@ namespace WebDemo.Entities
 
     public partial class Manufactory
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Manufactory()
+        {
+            Categories = new HashSet<Category>();
+        }
+
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int ManufactoriesID { get; set; }
 
         [StringLength(50)]
         public string ManufactoriesName { get; set; }
 
-        public int? ProductId { get; set; }
+        [StringLength(50)]
+        public string ImageIcon { get; set; }
 
-        public virtual Product Product { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Category> Categories { get; set; }
     }
 }

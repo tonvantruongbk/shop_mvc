@@ -1,6 +1,7 @@
 ﻿@model WebDemo.Models.HomeModel
+
 @{ 
-    var TotalElement = Model.LstChildCategoriesItem.Count;
+//var TotalElement = Model.LstChildCategoriesItem.Count;
 
 }
 
@@ -8,61 +9,51 @@
     <ul>
         <li class="list1">
             <a href="#">
-                <img src="~/images/new.png" class="icon" width="30" height="30" />
+                <img src="images/new.png" class="icon" width="30" height="30" />
                 <span>Khuyến Mại Mới</span>
             </a>
         </li>
-        @foreach (var item in Model.LstCatergoriesItem)
+        
+        @foreach (var itemPriCate in Model.LstCategories.Where(c => c.CategoriesParentID == 0))
         {
-
-        <li class="list2 dropdown-navigate">
-                <a href="@Url.Action("Index", "Product")">
-                    <img src="@item.PriCategoriesImages" class="icon" width="30" height="30" />
+           
+            <li class="list2 dropdown-navigate">
+                <a href="@Url.Action("Index","Product1")">
+                    <img src="@itemPriCate.CategoriesImages" class="icon" width="30" height="30" />
                     <span>
-                        @item.PriCategoriesName
+                        @itemPriCate.CategoriesName
                     </span>
                 </a>
-            <div class="dropdown-navigate-content">
-               <div class="row" style="margin-left:15px;">
-
-                  @foreach(var ItemRelaPriSubCate in Model.LstRelaPriSubCategory) {
-
-                      if(item.PriCategoriesID == ItemRelaPriSubCate.PriCategoriesID) {
-                          foreach (var SubItem in Model.LstSubCategoriesItem){
-                              if(SubItem.SubCategoriesID == ItemRelaPriSubCate.SubCategoriesID) { 
-                                  <div class="col-4">
+                <div class="dropdown-navigate-content">
+                    <div class="row" style="margin-left:15px;">
+                        @foreach (var itemSubCate in Model.LstCategories.Where(c=>c.CategoriesParentID==itemPriCate.ID))
+                        {
+                            
+                                <div class="col-4 col-m-12">
                                     <div class="block-content">
-                                        <a href="#" style="font-size:15px;font-weight:bold">@SubItem.SubCateGoriesName</a>                     
-                                        @foreach (var ItemRelaChildSub in Model.LstRelaChildSubCategory)
+                                        <a href="#" style="font-size:15px;font-weight:bold">@itemSubCate.CategoriesName </a>
+                                        @foreach (var itemChilCate in Model.LstCategories.Where(c=>c.CategoriesParentID==itemSubCate.ID).Take(6))
                                         {
-                                            if (ItemRelaChildSub.SubCategoriesID == SubItem.SubCategoriesID)
-                                            {
-                                                foreach (var itemChild in Model.LstChildCategoriesItem.Take(6).Where(x=> x.ChildCategoriesID == ItemRelaChildSub.ChildCategoriesID))
-                                                {
-                                                    if (itemChild.ChildCategoriesID == ItemRelaChildSub.ChildCategoriesID )
-                                                    {
-                                                        <a href="#">@itemChild.ChildCategoriesName</a>                                                           
-                                                    }
-                                                }
-                                            }
+                                                <a href="#">@itemChilCate.CategoriesName</a>
+                                           
+
                                         }
-                                        <a href="#" style="color:red;">Xem tất cả </a>
+                                       
+                                        <a href="#" style="color:red">Xem tất cả<span class="right-caret right"></span></a>
                                     </div>
-                                 </div>
-                              }
-                          }
-                      }
-                  }
-                  
+                                </div>                         
+
+                        }                       
+                        
+                    </div>                 
+
+
                 </div>
-                
-       
-            </div>
-              
 
-        </li>
+            </li>
         }
-
+        
+        
     </ul>
 </div>
 

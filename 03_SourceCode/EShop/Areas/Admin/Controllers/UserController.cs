@@ -11,6 +11,7 @@ namespace WebDemo.Areas.Admin.Controllers
         // GET: Admin/ThanhVien
         public ActionResult ThanhVien()
         {
+            
             return View();
         }
     }

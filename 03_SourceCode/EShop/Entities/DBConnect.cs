@@ -8,47 +8,48 @@ namespace WebDemo.Entities
     public partial class DBConnect : DbContext
     {
         public DBConnect()
-            : base("name=DBConnect3")
+            : base("name=DBConnect")
         {
         }
 
-        public virtual DbSet<ChildCategory> ChildCategories { get; set; }
-        public virtual DbSet<ImageManufactory> ImageManufactories { get; set; }
-        public virtual DbSet<ImageSlidePriCategory> ImageSlidePriCategories { get; set; }
+        public virtual DbSet<Category> Categories { get; set; }
+        public virtual DbSet<ImageSlideCategory> ImageSlideCategories { get; set; }
         public virtual DbSet<Manufactory> Manufactories { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<OrderDetail> OrderDetails { get; set; }
         public virtual DbSet<Password> Passwords { get; set; }
-        public virtual DbSet<PriCategory> PriCategories { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<ProductFollowAge> ProductFollowAges { get; set; }
         public virtual DbSet<ProductImage> ProductImages { get; set; }
-        public virtual DbSet<RelaChildSubCategory> RelaChildSubCategories { get; set; }
-        public virtual DbSet<RelaPriSubCategory> RelaPriSubCategories { get; set; }
         public virtual DbSet<RoleDetail> RoleDetails { get; set; }
-        public virtual DbSet<SubCategory> SubCategories { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<ChildCategory>()
-                .HasMany(e => e.RelaChildSubCategories)
-                .WithRequired(e => e.ChildCategory)
+            modelBuilder.Entity<Category>()
+                .Property(e => e.CategoriesImages)
+                .IsFixedLength();
+
+            modelBuilder.Entity<Category>()
+                .HasMany(e => e.ImageSlideCategories)
+                .WithRequired(e => e.Category)
+                .HasForeignKey(e => e.CategoriesID)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<ChildCategory>()
+            modelBuilder.Entity<Category>()
                 .HasMany(e => e.Products)
-                .WithMany(e => e.ChildCategories)
-                .Map(m => m.ToTable("RelaProductSubCategories").MapLeftKey("ChildCategoriesID").MapRightKey("ProductId"));
+                .WithOptional(e => e.Category)
+                .HasForeignKey(e => e.CategoriesID);
 
-            modelBuilder.Entity<ImageManufactory>()
+            modelBuilder.Entity<ImageSlideCategory>()
                 .Property(e => e.Image)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<ImageSlidePriCategory>()
-                .Property(e => e.Image)
-                .IsUnicode(false);
+            modelBuilder.Entity<Manufactory>()
+                .HasMany(e => e.Categories)
+                .WithMany(e => e.Manufactories)
+                .Map(m => m.ToTable("ManufactoriesCategories").MapLeftKey("ManufactoriesID").MapRightKey("CategoriesID"));
 
             modelBuilder.Entity<Order>()
                 .Property(e => e.Status)
@@ -67,20 +68,6 @@ namespace WebDemo.Entities
             modelBuilder.Entity<Password>()
                 .Property(e => e.PasswordSalt)
                 .IsUnicode(false);
-
-            modelBuilder.Entity<PriCategory>()
-                .Property(e => e.PriCategoriesImages)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<PriCategory>()
-                .HasMany(e => e.ImageSlidePriCategories)
-                .WithRequired(e => e.PriCategory)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<PriCategory>()
-                .HasMany(e => e.RelaPriSubCategories)
-                .WithRequired(e => e.PriCategory)
-                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Product>()
                 .Property(e => e.ProductName)
@@ -124,16 +111,6 @@ namespace WebDemo.Entities
                 .HasMany(e => e.Users)
                 .WithMany(e => e.RoleDetails)
                 .Map(m => m.ToTable("Role").MapLeftKey("RoleID").MapRightKey("UserID"));
-
-            modelBuilder.Entity<SubCategory>()
-                .HasMany(e => e.RelaChildSubCategories)
-                .WithRequired(e => e.SubCategory)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<SubCategory>()
-                .HasMany(e => e.RelaPriSubCategories)
-                .WithRequired(e => e.SubCategory)
-                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<User>()
                 .Property(e => e.UserName)

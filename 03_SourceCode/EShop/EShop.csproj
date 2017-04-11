@@ -715,25 +715,20 @@
     <Compile Include="Areas\Admin\Controllers\SignUpController.cs" />
     <Compile Include="Areas\Admin\Controllers\SlideController.cs" />
     <Compile Include="Areas\Admin\Controllers\UserController.cs" />
-    <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\Product1Controller.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductDetailController.cs" />
-    <Compile Include="Entities\ChildCategory.cs" />
+    <Compile Include="Entities\Category.cs" />
     <Compile Include="Entities\DBConnect.cs" />
-    <Compile Include="Entities\ImageManufactory.cs" />
-    <Compile Include="Entities\ImageSlidePriCategory.cs" />
+    <Compile Include="Entities\ImageSlideCategory.cs" />
     <Compile Include="Entities\Manufactory.cs" />
     <Compile Include="Entities\Order.cs" />
     <Compile Include="Entities\OrderDetail.cs" />
     <Compile Include="Entities\Password.cs" />
-    <Compile Include="Entities\PriCategory.cs" />
     <Compile Include="Entities\Product.cs" />
     <Compile Include="Entities\ProductFollowAge.cs" />
     <Compile Include="Entities\ProductImage.cs" />
-    <Compile Include="Entities\RelaChildSubCategory.cs" />
-    <Compile Include="Entities\RelaPriSubCategory.cs" />
     <Compile Include="Entities\RoleDetail.cs" />
-    <Compile Include="Entities\SubCategory.cs" />
     <Compile Include="Entities\sysdiagram.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Global.asax.cs">
@@ -768,6 +763,7 @@
     <Content Include="Views\Shared\ProductDetail\SlideImage.cshtml" />
     <Content Include="Views\Shared\ProductDetail\Detail.cshtml" />
     <Content Include="Views\Shared\ProductDetail\RelativeProduct.cshtml" />
+    <Content Include="Views\Product1\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

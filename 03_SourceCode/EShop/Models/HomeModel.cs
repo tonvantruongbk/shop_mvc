@@ -8,147 +8,51 @@ namespace WebDemo.Models
 {
     public class HomeModel
     {
-        public List<PriCategory> LstCatergoriesItem { get; set; }
-        public List<SubCategory> LstSubCategoriesItem { get; set; }
-        public List<ChildCategory> LstChildCategoriesItem { get; set; }
-        public List<RelaPriSubCategory> LstRelaPriSubCategory { get; set; }
-        public List<RelaChildSubCategory> LstRelaChildSubCategory { get; set; }
-        public class LstChildCate
+       
+        public List<Manufactory> LstManufactoriesItem { get; set; }
+        public List<Category> LstCategories { get; set; }
+      
+
+        public HomeModel()
         {
-            public int SubID { get; set; }
-            public int ChildID { get; set; }
-        }
-        public List<LstChildCate> LstChildCategories { get; set; }
-        DBConnect dbconnect = new DBConnect();
-        public HomeModel() {
             getCategories();
-            getSubCategories();
-            getChildCategories();
-            getRelaPriSubCategories();
-            getRelaChildSubCategories();
-            getLstChildCate();
-        }
-        public void getCategories() {
-            LstCatergoriesItem = new List<PriCategory>();
-
-            try
-            {
-                foreach (var item in dbconnect.PriCategories.ToList()){
-
-                    PriCategory cat = new PriCategory();
-                    cat.PriCategoriesID = item.PriCategoriesID;
-                    cat.PriCategoriesImages = item.PriCategoriesImages;
-                    cat.PriCategoriesName = item.PriCategoriesName;
-                    LstCatergoriesItem.Add(cat);
-               
-                 }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            getManufactories();
         }
 
-        public void getSubCategories() {
-            LstSubCategoriesItem = new List<SubCategory>();
+        DBConnect dbconnect = new DBConnect();
 
-            try
-            {
-                foreach (var item in dbconnect.SubCategories.ToList())
-                {
-
-                    SubCategory cat = new SubCategory();
-                    cat.SubCategoriesID = item.SubCategoriesID;
-                    cat.SubCateGoriesName = item.SubCateGoriesName;
-
-                    LstSubCategoriesItem.Add(cat);
-
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-        public void getChildCategories()
+        public void getCategories()
         {
-            LstChildCategoriesItem = new List<ChildCategory>();
+            LstCategories = new List<Category>();
 
-            try
+            foreach (var item in dbconnect.Categories.ToList())
             {
-                foreach (var item in dbconnect.ChildCategories.ToList())
-                {
-
-                    ChildCategory cat = new ChildCategory();
-                    cat.ChildCategoriesID = item.ChildCategoriesID;
-                    cat.ChildCategoriesName= item.ChildCategoriesName;
-
-                    LstChildCategoriesItem.Add(cat);
-
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
+                Category cat = new Category();
+                cat.ID = item.ID;
+                cat.CategoriesName = item.CategoriesName;
+                cat.CategoriesImages = item.CategoriesImages;
+                cat.CategoriesParentID = item.CategoriesParentID;
+                LstCategories.Add(cat);
             }
         }
-        public void getRelaPriSubCategories()
+
+       
+        public void getManufactories()
         {
-            LstRelaPriSubCategory = new List<RelaPriSubCategory>();
-
-            try
-            {
-                foreach (var item in dbconnect.RelaPriSubCategories.ToList())
+            LstManufactoriesItem = new List<Manufactory>();
+           
+                foreach(var item in dbconnect.Manufactories.ToList())
                 {
-
-                    RelaPriSubCategory cat = new RelaPriSubCategory();
-                    cat.DetailCategoriesID = item.DetailCategoriesID;
-                    cat.PriCategoriesID = item.PriCategoriesID;
-                    cat.SubCategoriesID = item.SubCategoriesID;
-
-                    LstRelaPriSubCategory.Add(cat);
-
+                    Manufactory cat = new Manufactory();
+                    cat.ManufactoriesID = item.ManufactoriesID;
+                    cat.ManufactoriesName = item.ManufactoriesName;
+                    cat.ImageIcon = item.ImageIcon;
+                    LstManufactoriesItem.Add(cat);
                 }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+           
         }
-        public void getRelaChildSubCategories()
-        {
-            LstRelaChildSubCategory = new List<RelaChildSubCategory>();
 
-            try
-            {
-                foreach (var item in dbconnect.RelaChildSubCategories.ToList())
-                {
 
-                    RelaChildSubCategory cat = new RelaChildSubCategory();
-                    cat.ChildCategoriesID = item.ChildCategoriesID;
-                    cat.SubCategoriesID = item.SubCategoriesID;
-                    LstRelaChildSubCategory.Add(cat);
-
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-        public void getLstChildCate()
-        {
-            getChildCategories();
-            LstChildCategories = new List<LstChildCate>();
-
-            foreach (var item in LstChildCategoriesItem)
-            {
-                LstChildCate cat = new LstChildCate();
-                cat.ChildID = item.ChildCategoriesID;
-                LstChildCategories.Add(cat);
-                LstChildCategories.Distinct();
-            }
-        }
 
     }
 }

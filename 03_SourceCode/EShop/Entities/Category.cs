@@ -6,25 +6,33 @@ namespace WebDemo.Entities
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class ChildCategory
+    public partial class Category
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ChildCategory()
+        public Category()
         {
-            RelaChildSubCategories = new HashSet<RelaChildSubCategory>();
+            ImageSlideCategories = new HashSet<ImageSlideCategory>();
             Products = new HashSet<Product>();
+            Manufactories = new HashSet<Manufactory>();
         }
 
-        [Key]
-        public int ChildCategoriesID { get; set; }
+        public int ID { get; set; }
+
+        public int? CategoriesParentID { get; set; }
 
         [StringLength(50)]
-        public string ChildCategoriesName { get; set; }
+        public string CategoriesName { get; set; }
+
+        [StringLength(50)]
+        public string CategoriesImages { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<RelaChildSubCategory> RelaChildSubCategories { get; set; }
+        public virtual ICollection<ImageSlideCategory> ImageSlideCategories { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Product> Products { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Manufactory> Manufactories { get; set; }
     }
 }

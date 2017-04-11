@@ -12,11 +12,9 @@ namespace WebDemo.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Product()
         {
-            Manufactories = new HashSet<Manufactory>();
             OrderDetails = new HashSet<OrderDetail>();
             ProductFollowAges = new HashSet<ProductFollowAge>();
             ProductImages = new HashSet<ProductImage>();
-            ChildCategories = new HashSet<ChildCategory>();
         }
 
         public int ProductID { get; set; }
@@ -41,8 +39,9 @@ namespace WebDemo.Entities
 
         public int Amount { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Manufactory> Manufactories { get; set; }
+        public int? CategoriesID { get; set; }
+
+        public virtual Category Category { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
@@ -52,8 +51,5 @@ namespace WebDemo.Entities
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ProductImage> ProductImages { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ChildCategory> ChildCategories { get; set; }
     }
 }
